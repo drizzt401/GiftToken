@@ -3,7 +3,7 @@ import { Button, View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View>
       <Text>Touch below</Text>

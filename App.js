@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./src/index";
-
-export default () => {
+const App = () => {
   return <Navigation />;
 };
+
+export default App;
