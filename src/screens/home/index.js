@@ -1,14 +1,17 @@
 import React from "react";
 import { Button, View, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import styles from "./styles";
 
 const Home = ({ navigation }) => {
   return (
-    <View>
-      <Text>Touch below</Text>
+    <View style={styles.container}>
+      <Text>Touch</Text>
       <Button
-        title="Authenticate"
+        title="Register"
+        onPress={() => navigation.navigate("Auth")}
+      ></Button>
+      <Button
+        title="Login"
         onPress={() => navigation.navigate("Auth")}
       ></Button>
     </View>

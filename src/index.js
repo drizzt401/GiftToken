@@ -2,8 +2,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { enableScreens } from "react-native-screens";
-import Home from "./screens/Home";
-import Auth from "./screens/Auth";
+import Home from "./screens/home";
+import Auth from "./screens/auth/login";
 
 enableScreens();
 
