@@ -10,7 +10,7 @@ import {
 
 import styles from "./styles";
 
-const Auth = navigation => {
+const Auth = ({ navigation }) => {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -28,22 +28,18 @@ const Auth = navigation => {
     setDetails({ password: e.target.value });
   };
 
-  const onSubmit = async e => {
+  const onSubmit = e => {
     e.preventDefault();
     try {
       setDetails({ loading: true });
-      let response = await fetch(
-        "https://hidden-island-59990.herokuapp.com/api/v1/auth/login",
-        {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: email,
-            password: password
-          })
-        }
-      );
-      let details = await response.json();
+      fetch("https://hidden-island-59990.herokuapp.com/api/v1/auth/login", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      }).then(response => response.json());
     } catch (error) {
       setDetails({ error: true });
       console.log(error);
@@ -52,7 +48,7 @@ const Auth = navigation => {
   return (
     <View style={styles.container}>
       <Text>Login</Text>
-      <br />
+
       <TextInput
         onChangeText={onEmailChange}
         placeholder="email"
@@ -61,7 +57,7 @@ const Auth = navigation => {
       <TextInput
         onChangeText={onPasswordChange}
         placeholder="password"
-        secureTextEntry={true}
+        secureTextEntry
         style={styles.input}
       />
       {loading ? (
@@ -73,10 +69,9 @@ const Auth = navigation => {
           onPress={() => onSubmit()}
         />
       )}
-      <br />
-      <br />
+
       <Text>Don't have an account?</Text>
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
         <Text>Register here</Text>
       </TouchableOpacity>
     </View>

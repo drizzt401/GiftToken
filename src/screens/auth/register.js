@@ -3,7 +3,7 @@ import { ActivityIndicator, Button, View, Text, TextInput } from "react-native";
 
 import styles from "./styles";
 
-const Auth = navigation => {
+const Register = ({ navigation }) => {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -44,7 +44,7 @@ const Auth = navigation => {
   };
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
+      <Text>Register</Text>
       <br />
       <TextInput
         onChangeText={onEmailChange}
@@ -69,8 +69,11 @@ const Auth = navigation => {
       <br />
       <br />
       <Text>Have an account?</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Auth")}>
+        <Text>Register here</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default Auth;
+export default Register;
