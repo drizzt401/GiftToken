@@ -14,7 +14,20 @@ const Navigation = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Auth" component={Auth} />
+      <Stack.Screen
+        name="Auth"
+        options={{
+          title: "GiftToken",
+          headerStyle: {
+            backgroundColor: "#f4511e"
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold"
+          }
+        }}
+        component={Auth}
+      />
       <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   </NavigationContainer>
