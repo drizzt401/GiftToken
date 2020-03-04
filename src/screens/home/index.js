@@ -8,8 +8,9 @@ const Home = ({ navigation }) => {
       <Text>Touch</Text>
       <Button
         title="Register"
-        onPress={() => navigation.navigate("Auth")}
+        onPress={() => navigation.navigate("Register")}
       ></Button>
+
       <Button
         title="Login"
         onPress={() => navigation.navigate("Auth")}
